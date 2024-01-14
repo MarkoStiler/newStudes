@@ -2,14 +2,61 @@ package uz.pdp.db;
 
 import uz.pdp.etitel.Studen;
 
-public class StudentRepo implements Repositore<Student>{
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class StudentRepo implements Repositore<Studen>{
+
+    private List<Studen> list;
+    private static StudentRepo studentRepo;
+    private static String PACH = "src/uz/pdp//db/student_db.txt";
+    public StudentRepo(List<Studen> list) {
+        this.list = list;
+    }
+
+
+    public static StudentRepo getInstance(){
+        if(studentRepo==null){
+            studentRepo= new StudentRepo( LoadData());
+        }
+        return studentRepo;
+    }
+
+    @SuppressWarnings( "unchecked" )
+    public static List<Studen> LoadData() {
+        try (
+                InputStream inputStream = new FileInputStream(PACH);
+                ObjectInputStream objectInputStream = new ObjectInputStream( inputStream );
+        ) {
+            return (List<Studen>) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            return new ArrayList<>();
+        }
+    }
+
+
     @Override
-    public void create() {
+    public void create(Studen studen) {
+    list.add( studen );
+    LoadAdd();
+    }
+
+    private void LoadAdd() {
+        try(
+                OutputStream outputStream = new FileOutputStream( PACH );
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream( outputStream );
+        ) {
+                objectOutputStream.writeObject( list );
+        } catch (IOException e) {
+            throw new RuntimeException( e );
+        }
+
 
     }
 
     @Override
-    public void read() {
+    public void read(List<Studen> list) {
 
     }
 
@@ -22,4 +69,10 @@ public class StudentRepo implements Repositore<Student>{
     public void delete() {
 
     }
+
+    @Override
+    public List<Studen> students() {
+        return list;
+    }
+
 }
