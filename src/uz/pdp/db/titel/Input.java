@@ -8,6 +8,10 @@ public interface Input {
         System.out.println(msg);
         return new Scanner( System.in ).next();
     }
+    static Integer inputInt(String msg){
+        System.out.println(msg);
+        return new Scanner( System.in ).nextInt();
+    }
 
 
 }
