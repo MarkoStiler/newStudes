@@ -68,8 +68,8 @@ public class StudentRepo implements Repositore<Studen>{
     }
 
     @Override
-    public void delete() {
-
+    public void delete(Studen studen) {
+    list.remove( studen );
     }
 
     @Override
