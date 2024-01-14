@@ -1,6 +1,8 @@
 package uz.pdp.etitel;
 
-public class Studen {
+import java.io.Serializable;
+
+public class Studen implements Serializable {
 
     private int sum = 1;
     private Integer id = sum++;

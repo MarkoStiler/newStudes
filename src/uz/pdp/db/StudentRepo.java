@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRepo implements Repositore<Studen>{
+public class StudentRepo implements Repositore<Studen>,Serializable{
 
     private List<Studen> list;
     private static StudentRepo studentRepo;
