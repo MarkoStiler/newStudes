@@ -65,6 +65,7 @@ public class StudentRepo implements Repositore<Studen>,Serializable{
     @Override
     public void delete(Studen studen) {
     list.remove( studen );
+    LoadAdd();
     }
 
     @Override

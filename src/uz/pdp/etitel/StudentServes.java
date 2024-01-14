@@ -35,12 +35,8 @@ public class StudentServes {
         for (Studen studen : studens) {
             System.out.println(studen);
         }
-        int id = Input.inputInt( "id : kriting" );
-            if (studens.get( id ).getId().equals( id )){
-                return studens.get( id );
-            }
-        return getStudent();
-
+        int id = Input.inputInt( "id : kriting" )-1;
+        return studens.get( id );
     }
 
     public static void Ochirish() {
