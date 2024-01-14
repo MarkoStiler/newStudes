@@ -2,6 +2,8 @@ package uz.pdp.etitel;
 
 public class Studen {
 
+    private int sum = 1;
+    private Integer id = sum++;
     private String name;
     private int age;
 
@@ -12,6 +14,22 @@ public class Studen {
 
     public String getName() {
         return name;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -29,7 +47,8 @@ public class Studen {
     @Override
     public String toString() {
         return "Studen{" +
-                "name='" + name + '\'' +
+                " id="+id+
+                " name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }

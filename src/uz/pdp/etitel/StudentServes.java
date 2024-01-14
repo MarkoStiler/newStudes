@@ -3,6 +3,9 @@ package uz.pdp.etitel;
 import uz.pdp.db.StudentRepo;
 import uz.pdp.db.titel.Input;
 
+import java.util.List;
+import java.util.Optional;
+
 public class StudentServes {
 
     private static StudentRepo STUDENT_REPO = StudentRepo.getInstance();
@@ -21,6 +24,23 @@ public class StudentServes {
     }
 
     public static void Ozgartirish() {
+        Studen studen = getStudent();
+        String name = Input.inputStr( "Yangi : ismini kriting " );
+        int age = Input.inputInt( "Yangi : yoshini kriting " );
+        STUDENT_REPO.update( studen,name,age );
+    }
+
+    private static Studen getStudent() {
+        List<Studen> studens = STUDENT_REPO.read();
+        for (Studen studen : studens) {
+            System.out.println(studen);
+        }
+        int id = Input.inputInt( "id : kriting" );
+            if (studens.get( id ).getId().equals( id )){
+                return studens.get( id );
+            }
+        return getStudent();
+
     }
 
     public static void Ochirish() {
