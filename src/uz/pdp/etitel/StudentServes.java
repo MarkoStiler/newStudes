@@ -44,5 +44,7 @@ public class StudentServes {
     }
 
     public static void Ochirish() {
+        Studen studen = getStudent();
+        STUDENT_REPO.delete(studen);
     }
 }
