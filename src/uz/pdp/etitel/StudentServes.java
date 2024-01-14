@@ -15,6 +15,9 @@ public class StudentServes {
     }
 
     public static void Korish() {
+        for (Studen studen : STUDENT_REPO.read()) {
+            System.out.println(studen);
+        }
     }
 
     public static void Ozgartirish() {
