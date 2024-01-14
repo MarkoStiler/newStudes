@@ -8,7 +8,7 @@ public interface Repositore<T> {
 
     void create(T t);
     void read(List<T> list);
-    void update();
+    void update(Studen studen,String name,int age);
     void delete();
     List<Studen> students();
 

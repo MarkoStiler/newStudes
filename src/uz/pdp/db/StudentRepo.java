@@ -61,8 +61,10 @@ public class StudentRepo implements Repositore<Studen>{
     }
 
     @Override
-    public void update() {
-
+    public void update(Studen studen,String name,int age) {
+    studen.setName( name );
+    studen.setAge( age );
+    LoadAdd();
     }
 
     @Override
