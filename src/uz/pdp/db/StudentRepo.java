@@ -56,11 +56,6 @@ public class StudentRepo implements Repositore<Studen>{
     }
 
     @Override
-    public void read(List<Studen> list) {
-
-    }
-
-    @Override
     public void update(Studen studen,String name,int age) {
     studen.setName( name );
     studen.setAge( age );
@@ -73,7 +68,7 @@ public class StudentRepo implements Repositore<Studen>{
     }
 
     @Override
-    public List<Studen> students() {
+    public List<Studen> read() {
         return list;
     }
 
